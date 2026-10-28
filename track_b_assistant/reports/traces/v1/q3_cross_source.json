@@ -1,0 +1,35 @@
+{
+  "question": "Does the Business plan price match between the product FAQ and IT support notes?",
+  "answer": "The Business plan costs $20/user/month billed annually.",
+  "sources": [
+    "acme_product_faq.md"
+  ],
+  "confidence": "high",
+  "verification": "sufficient",
+  "iterations": 2,
+  "trajectory": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "business plan price",
+      "verdict": "sufficient",
+      "tokens": 240
+    }
+  ],
+  "evidence_log": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "business plan price",
+      "note": "(acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",
+      "verdict": "sufficient",
+      "verifier_reason": "evidence directly answers the question",
+      "verifier_missing": ""
+    }
+  ],
+  "total_tokens": 360,
+  "model_used": [
+    "mock/prompt-aware-v1"
+  ],
+  "degraded": false
+}

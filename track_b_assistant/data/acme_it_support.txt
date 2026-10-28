@@ -1,0 +1,39 @@
+ACME CORP - IT SUPPORT GUIDE
+
+1. PASSWORD POLICY
+Passwords must be at least 12 characters long and contain uppercase letters,
+lowercase letters, numbers and a special character. Passwords expire every 90
+days and the last 5 passwords cannot be reused. After 5 failed login attempts
+the account is locked for 15 minutes.
+
+2. RESETTING YOUR PASSWORD
+Go to https://sso.acme-corp.example/reset and enter your work email. You will
+receive a one-time code on your registered phone. If you do not have access to
+your phone, raise an IT support ticket with priority "high".
+
+3. VPN ACCESS
+All employees must connect to the company VPN (Acme SecureConnect) when
+accessing internal tools from outside the office. Install the SecureConnect
+client from the Self Service portal. VPN sessions disconnect automatically
+after 10 hours.
+
+4. LAPTOP AND HARDWARE
+New employees get a laptop on their first day. Laptops are replaced every 3
+years. If a laptop is damaged, report it within 24 hours by raising a support
+ticket. Lost or stolen devices must be reported immediately so that IT can
+remotely wipe the device.
+
+5. SOFTWARE INSTALLATION
+Only approved software from the Self Service portal can be installed. To request
+new software, raise a ticket with the software name and the business reason.
+Approval usually takes 2 business days.
+
+6. SUPPORT TICKET PRIORITIES
+- low: general questions, response within 3 business days
+- medium: issue affects work but a workaround exists, response within 1 business day
+- high: cannot work at all (for example account locked, laptop not booting), response within 4 hours
+
+7. IT HELPDESK CONTACT
+Helpdesk hours: Monday to Friday, 8:00 AM to 8:00 PM.
+Email: it-help@acme-corp.example
+Phone extension: 4357 (HELP)

@@ -1,0 +1,29 @@
+{
+  "question": "I have used 7 of my 24 annual leave days, how many are left?",
+  "answer": "You have 17 leave days left.",
+  "sources": [],
+  "confidence": "high",
+  "verification": "not_verified",
+  "iterations": 2,
+  "trajectory": [
+    {
+      "iteration": 1,
+      "action": "calculate",
+      "expression": "24 - 7",
+      "tokens": 120
+    }
+  ],
+  "evidence_log": [
+    {
+      "iteration": 1,
+      "action": "calculate",
+      "query": "24 - 7",
+      "note": "calculator('24 - 7') = 17"
+    }
+  ],
+  "total_tokens": 240,
+  "model_used": [
+    "mock/prompt-aware-v1"
+  ],
+  "degraded": false
+}

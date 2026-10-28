@@ -1,0 +1,37 @@
+flowchart TB
+    User(["User browser"]) --> UI
+
+    subgraph COMPOSE["docker compose"]
+        UI["ui container<br/>Streamlit :8501<br/>chat + batch tabs"]
+
+        subgraph API["api container - FastAPI :8000 (async)"]
+            RL["Rate limiter<br/>20 req/min per IP<br/>429 + Retry-After"]
+            CACHE["Response cache<br/>TTL 10 min, LRU 200"]
+            ASSIST["Assistant<br/>RAG + tool calling<br/>JSON output"]
+            BATCH["/chat/batch<br/>asyncio.gather"]
+            SEM["Semaphore<br/>max 5 LLM calls at once"]
+            ROUTER["LLM client<br/>retry: 3x exponential backoff<br/>then next provider"]
+            EMB["MiniLM embeddings<br/>ONNX Runtime INT8<br/>(7x faster on CPU)"]
+            DEG["Graceful degradation<br/>return document passages<br/>if all LLMs fail"]
+        end
+
+        VDB[("ChromaDB<br/>volume: chroma_data")]
+    end
+
+    subgraph PROV["LLM providers (tried in order)"]
+        direction TB
+        G1["1. Groq API<br/>openai/gpt-oss-120b"]
+        G2["2. Groq API<br/>llama-3.1-8b-instant"]
+        VLLM["3. vllm container<br/>(compose profile: gpu)<br/>Qwen2.5-1.5B-Instruct"]
+        G1 -. "fails" .-> G2 -. "fails" .-> VLLM
+    end
+
+    UI -- "HTTP JSON" --> RL
+    RL --> CACHE
+    CACHE -- "miss" --> ASSIST
+    CACHE -- "hit" --> UI
+    BATCH --> CACHE
+    ASSIST --> EMB --> VDB
+    ASSIST --> SEM --> ROUTER
+    ROUTER -- "OpenAI-compatible API" --> G1
+    ROUTER -- "all failed" --> DEG

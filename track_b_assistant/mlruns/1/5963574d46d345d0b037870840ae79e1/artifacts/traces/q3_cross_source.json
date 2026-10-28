@@ -1,0 +1,99 @@
+{
+  "question": "Does the Business plan price match between the product FAQ and IT support notes?",
+  "answer": "I was not able to fully verify this answer within the allowed number of research steps. Best available evidence: (acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",
+  "sources": [
+    "acme_product_faq.md"
+  ],
+  "confidence": "low",
+  "verification": "max_iterations_reached",
+  "iterations": 5,
+  "trajectory": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "business plan price",
+      "verdict": "insufficient",
+      "tokens": 240
+    },
+    {
+      "iteration": 2,
+      "action": "search",
+      "query": "business plan price",
+      "verdict": "insufficient",
+      "tokens": 240
+    },
+    {
+      "iteration": 3,
+      "action": "search",
+      "query": "business plan price",
+      "verdict": "insufficient",
+      "tokens": 240
+    },
+    {
+      "iteration": 4,
+      "action": "search",
+      "query": "business plan price",
+      "verdict": "insufficient",
+      "tokens": 240
+    },
+    {
+      "iteration": 5,
+      "action": "search",
+      "query": "business plan price",
+      "verdict": "insufficient",
+      "tokens": 240
+    }
+  ],
+  "evidence_log": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "business plan price",
+      "note": "(acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",
+      "verdict": "insufficient",
+      "verifier_reason": "only one source seen so far for a cross-source question",
+      "verifier_missing": "the IT support documentation's figure"
+    },
+    {
+      "iteration": 2,
+      "action": "search",
+      "query": "business plan price",
+      "note": "(acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",
+      "verdict": "insufficient",
+      "verifier_reason": "only one source seen so far for a cross-source question",
+      "verifier_missing": "the IT support documentation's figure"
+    },
+    {
+      "iteration": 3,
+      "action": "search",
+      "query": "business plan price",
+      "note": "(acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",
+      "verdict": "insufficient",
+      "verifier_reason": "only one source seen so far for a cross-source question",
+      "verifier_missing": "the IT support documentation's figure"
+    },
+    {
+      "iteration": 4,
+      "action": "search",
+      "query": "business plan price",
+      "note": "(acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",
+      "verdict": "insufficient",
+      "verifier_reason": "only one source seen so far for a cross-source question",
+      "verifier_missing": "the IT support documentation's figure"
+    },
+    {
+      "iteration": 5,
+      "action": "search",
+      "query": "business plan price",
+      "note": "(acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",
+      "verdict": "insufficient",
+      "verifier_reason": "only one source seen so far for a cross-source question",
+      "verifier_missing": "the IT support documentation's figure"
+    }
+  ],
+  "total_tokens": 1200,
+  "model_used": [
+    "mock/prompt-aware-v1"
+  ],
+  "degraded": false
+}

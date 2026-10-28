@@ -1,0 +1,52 @@
+{
+  "question": "Does the Business plan price match between the product FAQ and IT support notes?",
+  "answer": "The sources disagree: the product FAQ lists the Business plan at $20/user/month, but internal IT support notes say $25/user/month. Please confirm with sales before quoting a customer - I can't verify which figure is current.",
+  "sources": [
+    "acme_it_support.txt",
+    "acme_product_faq.md"
+  ],
+  "confidence": "low",
+  "verification": "conflicting",
+  "iterations": 3,
+  "trajectory": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "business plan price",
+      "verdict": "insufficient",
+      "tokens": 240
+    },
+    {
+      "iteration": 2,
+      "action": "search",
+      "query": "IT support documentation business plan price",
+      "verdict": "conflicting",
+      "tokens": 240
+    }
+  ],
+  "evidence_log": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "business plan price",
+      "note": "(acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",
+      "verdict": "insufficient",
+      "verifier_reason": "only one source seen so far for a cross-source question",
+      "verifier_missing": "the IT support documentation's figure"
+    },
+    {
+      "iteration": 2,
+      "action": "search",
+      "query": "IT support documentation business plan price",
+      "note": "(acme_it_support.txt, score=0.82) Internal IT support notes list the Business plan at $25/user/month....",
+      "verdict": "conflicting",
+      "verifier_reason": "found different figures across 2 sources (acme_it_support.txt, acme_product_faq.md)",
+      "verifier_missing": ""
+    }
+  ],
+  "total_tokens": 600,
+  "model_used": [
+    "mock/prompt-aware-v1"
+  ],
+  "degraded": false
+}

@@ -1,0 +1,6 @@
+{
+  "model_name": "telco_churn_classifier",
+  "version": 1,
+  "source_run_id": "0e61daf7271f440caf5b15b0ca7e4df4",
+  "stage": "Production"
+}

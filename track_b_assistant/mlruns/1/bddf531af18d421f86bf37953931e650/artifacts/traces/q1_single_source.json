@@ -1,0 +1,35 @@
+{
+  "question": "How many paid annual leave days do employees get per year?",
+  "answer": "Employees get 24 days of paid annual leave, accrued monthly.",
+  "sources": [
+    "acme_hr_policy.md"
+  ],
+  "confidence": "high",
+  "verification": "sufficient",
+  "iterations": 2,
+  "trajectory": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "paid annual leave days",
+      "verdict": "sufficient",
+      "tokens": 240
+    }
+  ],
+  "evidence_log": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "paid annual leave days",
+      "note": "(acme_hr_policy.md, score=0.9) Employees get 24 days of paid annual leave, accrued monthly....",
+      "verdict": "sufficient",
+      "verifier_reason": "evidence directly answers the question",
+      "verifier_missing": ""
+    }
+  ],
+  "total_tokens": 360,
+  "model_used": [
+    "mock/prompt-aware-v1"
+  ],
+  "degraded": false
+}

@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph ING["1 - Ingestion (python -m app.rag.ingest)"]
+        D["data/<br/>.md .txt .pdf"] --> L["Load files"]
+        L --> C["Chunking<br/>500 chars, 100 overlap<br/>headings kept with text"]
+        C --> E1["Embeddings<br/>all-MiniLM-L6-v2<br/>(Hugging Face)"]
+        E1 --> V[("ChromaDB<br/>vector DB<br/>cosine")]
+    end
+
+    subgraph QRY["2 - Question answering"]
+        U(["User<br/>CLI / API"]) --> A["Assistant<br/>app/assistant.py"]
+        A -- "embed question" --> E2["MiniLM"]
+        E2 -- "top-4 search" --> V
+        V -- "relevant chunks" --> A
+        A -- "system prompt + context<br/>temperature=0.2, top_p=0.9<br/>+ tool schemas" --> LLM["LLM<br/>Groq openai/gpt-oss-120b"]
+        LLM -- "tool_calls" --> T["Tools<br/>search_documents<br/>calculator<br/>get_current_datetime<br/>get_weather<br/>create_support_ticket"]
+        T -- "tool results" --> LLM
+        LLM -- "final JSON" --> P["Pydantic validation<br/>+ JSON repair call"]
+        P --> U
+    end
+
+    subgraph LOCAL["Local open-source model"]
+        VL["vLLM server<br/>Qwen2.5-1.5B-Instruct<br/>OpenAI-compatible API"]
+    end
+    A -. "same OpenAI client,<br/>different base_url" .-> VL

@@ -1,0 +1,17 @@
+{
+  "dataset_drift_detected": false,
+  "n_drifted_columns": 2,
+  "share_drifted_columns": 0.1,
+  "reference_churn_rate": 0.26267748478701824,
+  "current_churn_rate": 0.29105537150970184,
+  "churn_rate_delta": 0.0283778867226836,
+  "custom_metrics": {
+    "MeanValueDiff(column=MonthlyCharges)": 27.360524688328297,
+    "ChurnRateShiftInSegment(segment_column=Contract,segment_value=Month-to-month,target_column=Churn)": -0.09125785505488665
+  },
+  "columns_perturbed": [
+    "MonthlyCharges (numeric noise)",
+    "Contract (categorical skew)",
+    "Churn (5% label flip)"
+  ]
+}

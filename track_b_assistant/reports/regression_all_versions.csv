@@ -1,0 +1,16 @@
+version,id,response,Correctness,Decline
+v1,q1_single_source,"Employees get 24 days of paid annual leave, accrued monthly.",INCORRECT,OK
+v1,q2_calculation,You have 17 leave days left.,CORRECT,OK
+v1,q3_cross_source,The Business plan costs $20/user/month billed annually.,INCORRECT,OK
+v1,q4_ambiguous,Which plan or service are you asking about?,CORRECT,OK
+v1,q5_single_source,Go to Settings > Security > Reset password.,CORRECT,OK
+v2,q1_single_source,"Employees get 24 days of paid annual leave, accrued monthly.",INCORRECT,OK
+v2,q2_calculation,You have 17 leave days left.,CORRECT,OK
+v2,q3_cross_source,"I was not able to fully verify this answer within the allowed number of research steps. Best available evidence: (acme_product_faq.md, score=0.85) The Business plan costs $20/user/month billed annually....",INCORRECT,DECLINED
+v2,q4_ambiguous,Which plan or service are you asking about?,CORRECT,OK
+v2,q5_single_source,Go to Settings > Security > Reset password.,CORRECT,OK
+v3,q1_single_source,"Employees get 24 days of paid annual leave, accrued monthly.",INCORRECT,OK
+v3,q2_calculation,You have 17 leave days left.,CORRECT,OK
+v3,q3_cross_source,"The sources disagree: the product FAQ lists the Business plan at $20/user/month, but internal IT support notes say $25/user/month. Please confirm with sales before quoting a customer - I can't verify which figure is current.",CORRECT,OK
+v3,q4_ambiguous,Which plan or service are you asking about?,CORRECT,OK
+v3,q5_single_source,Go to Settings > Security > Reset password.,CORRECT,OK

@@ -1,0 +1,21 @@
+{
+  "question": "How much does it cost?",
+  "answer": "Which plan or service are you asking about?",
+  "sources": [],
+  "confidence": "low",
+  "verification": "clarification_needed",
+  "iterations": 1,
+  "trajectory": [
+    {
+      "iteration": 1,
+      "action": "ask_clarification",
+      "tokens": 120
+    }
+  ],
+  "evidence_log": [],
+  "total_tokens": 120,
+  "model_used": [
+    "mock/prompt-aware-v1"
+  ],
+  "degraded": false
+}

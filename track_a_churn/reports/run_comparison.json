@@ -1,0 +1,66 @@
+[
+  {
+    "run_id": "0e61daf7271f440caf5b15b0ca7e4df4",
+    "run_name": "logreg_c0.1",
+    "model_family": "LogisticRegression",
+    "params": {
+      "C": 0.1,
+      "penalty": "l2",
+      "max_iter": 1000,
+      "class_weight": "balanced"
+    },
+    "accuracy": 0.7416607523066004,
+    "precision": 0.5086505190311419,
+    "recall": 0.786096256684492,
+    "f1": 0.6176470588235294,
+    "roc_auc": 0.8408302978635459
+  },
+  {
+    "run_id": "6eed5f3889784093bd6e2451a15cc340",
+    "run_name": "rf_shallow_100trees",
+    "model_family": "RandomForest",
+    "params": {
+      "n_estimators": 100,
+      "max_depth": 5,
+      "class_weight": "balanced",
+      "random_state": 42
+    },
+    "accuracy": 0.7381121362668559,
+    "precision": 0.5042735042735043,
+    "recall": 0.7887700534759359,
+    "f1": 0.6152241918665277,
+    "roc_auc": 0.8387803869901056
+  },
+  {
+    "run_id": "a179eb42a0aa4246812e4e70460bf912",
+    "run_name": "logreg_c1.0",
+    "model_family": "LogisticRegression",
+    "params": {
+      "C": 1.0,
+      "penalty": "l2",
+      "max_iter": 1000,
+      "class_weight": "balanced"
+    },
+    "accuracy": 0.7381121362668559,
+    "precision": 0.504302925989673,
+    "recall": 0.7834224598930482,
+    "f1": 0.6136125654450262,
+    "roc_auc": 0.841501976284585
+  },
+  {
+    "run_id": "cbb582b455d94fc89e425d84b9b090ed",
+    "run_name": "rf_deep_300trees",
+    "model_family": "RandomForest",
+    "params": {
+      "n_estimators": 300,
+      "max_depth": 12,
+      "class_weight": "balanced",
+      "random_state": 42
+    },
+    "accuracy": 0.7530163236337828,
+    "precision": 0.5261044176706827,
+    "recall": 0.7005347593582888,
+    "f1": 0.6009174311926605,
+    "roc_auc": 0.8339998449972875
+  }
+]

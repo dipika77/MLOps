@@ -1,0 +1,35 @@
+{
+  "question": "How do I reset my password?",
+  "answer": "Go to Settings > Security > Reset password.",
+  "sources": [
+    "acme_it_support.txt"
+  ],
+  "confidence": "high",
+  "verification": "sufficient",
+  "iterations": 2,
+  "trajectory": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "reset password",
+      "verdict": "sufficient",
+      "tokens": 240
+    }
+  ],
+  "evidence_log": [
+    {
+      "iteration": 1,
+      "action": "search",
+      "query": "reset password",
+      "note": "(acme_it_support.txt, score=0.9) Go to Settings > Security > Reset password....",
+      "verdict": "sufficient",
+      "verifier_reason": "evidence directly answers the question",
+      "verifier_missing": ""
+    }
+  ],
+  "total_tokens": 360,
+  "model_used": [
+    "mock/prompt-aware-v1"
+  ],
+  "degraded": false
+}

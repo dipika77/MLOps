@@ -1,0 +1,31 @@
+flowchart TB
+    User(["User question<br/>e.g. 'Business plan price vs IT support notes?'"]) --> API["/agentic_chat endpoint"]
+
+    subgraph LOOP["Agentic loop - hard cap: MAX_AGENT_ITERATIONS (default 4)"]
+        direction TB
+        NOTES[("Structured evidence log<br/>(external notes, NOT raw chunks)<br/>one compact line per iteration")]
+
+        R["RESEARCHER agent<br/>reads: question + compact evidence log<br/>decides ONE action"]
+        R -->|"action = search"| TOOLS
+        R -->|"action = calculate"| CALC["calculator tool"]
+        R -->|"action = ask_clarification"| ASK["Return question to user<br/>(multi-turn, no guessing)"]
+        R -->|"action = finish"| FINAL["Final answer<br/>+ sources + confidence"]
+
+        subgraph TOOLS["Tools"]
+            SEARCH["search_documents<br/>(vector search across all 3 sources:<br/>HR policy / IT support / product FAQ)"]
+            FAIL["Simulated failure mode<br/>SIMULATE_SEARCH_FAILURE=true<br/>(failure-injection test)"]
+            SEARCH -.->|"if injected"| FAIL
+        end
+
+        TOOLS --> V["VERIFIER agent (separate LLM call)<br/>judges the evidence log ONLY:<br/>sufficient / insufficient / conflicting"]
+        CALC --> NOTES
+        V -->|"writes verdict"| NOTES
+        NOTES -->|"compact notes only, prompt stays ~flat size"| R
+        V -->|"insufficient + iterations left"| R
+        V -->|"sufficient"| R
+    end
+
+    ASK --> OUT(["Response to user"])
+    FINAL --> OUT
+
+    EVAL["scripts/eval_agentic.py<br/>(evaluation harness, built from scratch)<br/>completion rate, tool-call correctness,<br/>trajectory length, failure log, token accounting,<br/>single-agent vs multi-agent token comparison"] -.-> LOOP
